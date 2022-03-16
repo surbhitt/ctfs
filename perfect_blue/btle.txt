@@ -1,0 +1,34 @@
+
+>writeups
+ https://rainbowpigeon.me/posts/pbctf-2021/#btle
+ https://github.com/apoirrier/CTFs-writeups/blob/master/PBCTF2021/Misc/BTLE.md
+ https://github.com/tttttx2/CTF_Writeups/blob/main/PBCTF-2021/BTLE.md
+
+>
+ wirehsark: 
+ bluetooth: https://www.bluetooth.com/blog/bluetooth-low-energy-it-starts-with-advertising/
+	    https://www.microchipdeveloper.com/wireless:ble-link-layer-overview
+
+>
+ PDUs: indicate whether the packet is an advertising or data packet 
+ on analyzing the pcap file in wireshark, we notice a write request in bt attribute protocol.
+ if we filter by btatt and scroll to the bottom, we can spot a Read Response packet containing the redacted flag in the Value attribute.
+ the data is hexencoded
+
+>python script to retrieve flag
+	
+	from scapy.all import *
+
+	current = []
+	for packet in rdpcap('btle.pcap'):
+    		if "Prepare Write Response" in packet:       
+        		offset = packet["Prepare Write Response"].offset
+        		data = bytes(packet["Prepare Write Response"].data)
+        		if offset + len(data) > len(current):
+            			current = current + ([0] * (offset + len(data) - len(current)))
+        		for i in range(offset, offset + len(data)):
+            			current[i] = data[i - offset]
+	print(current)
+	print("".join([chr(x) for x in current]))	
+
+>flag: pctf{b1Ue_te3Th_is_ba4d_4_y0u_jUs7_4sk_HAr0lD_b1U3tO07h} 

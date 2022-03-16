@@ -1,0 +1,7 @@
+
+>writeups: (keytap2)https://ctftime.org/writeup/30835
+	   https://github.com/tttttx2/CTF_Writeups/blob/main/PBCTF-2021/GhostWriter.md
+           
+
+> 
+ acoustic keylogger
