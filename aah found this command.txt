@@ -1,3 +1,0 @@
- > to check the head of a data file
- xxd -g 1 tunn3l_v1s10n | head
-gives the type of file 
