@@ -1,4 +1,4 @@
-# this is the template for a program with a dictionary  
+# this is the template for a program with a dictionary sorted with the keys
 
 l = { 0 :'d' ,
 29: 'a',
@@ -35,3 +35,8 @@ l = { 0 :'d' ,
 
 sl = [value for key, value in sorted(l.items())] # Note the () after items!
 print("".join(sl))
+
+
+''' for sorting dictionary with values use
+	sorted(d.items(), key = lambda x : x[1])
+'''
