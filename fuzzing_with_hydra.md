@@ -1,7 +1,7 @@
 
 # FUZZING USING HYDRA
 
-(ref_article)[https://infinitelogins.com/2020/02/22/how-to-brute-force-websites-using-hydra/] <br>
+(ref_article)[https://infinitelogins.com/2020/02/22/how-to-brute-force-websites-using-hydra/]
 (ref_vid)[https://www.youtube.com/watch?v=YrMNih3Z-4Y] 
 
 > INTRO
